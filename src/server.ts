@@ -13,14 +13,14 @@ import fileUpload from "express-fileupload";
 
 const app = express();
 
+app.use(morgan("dev"));
+app.use(express.json());
 app.use(
   cors({
     origin: "*",
     credentials: true,
   })
 );
-app.use(morgan("dev"));
-app.use(express.json());
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
