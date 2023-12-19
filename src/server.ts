@@ -13,7 +13,11 @@ import fileUpload from "express-fileupload";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true }));
